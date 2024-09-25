@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd libs
+cd lib
 path="`pwd`/$1"
-mkdir -p $path/libs
+mkdir -p $path
 cd readline-8.2 && ./configure --prefix=$path
 make
 make install
