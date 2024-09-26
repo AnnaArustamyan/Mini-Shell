@@ -27,6 +27,6 @@ typedef struct s_token
 	char			*value;
 	char			*quote;
 	struct s_token	*next;
-}
+}					t_token;
 
 # endif
