@@ -12,6 +12,21 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
+typedef struct s_var
+{
+	char			*name;
+	char			*value;
+	char			meaning;
+	int				status;
+	struct s_var	*next;
+}					t_var;
 
+typedef struct s_token
+{
+	char			type;
+	char			*value;
+	char			*quote;
+	struct s_token	*next;
+}
 
 # endif
