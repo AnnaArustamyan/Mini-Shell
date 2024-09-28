@@ -1,66 +1,67 @@
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*new_elem;
+#include "../includes/minishell.h"
 
-	new_elem = (t_list *)malloc(sizeof(t_list));
+t_token	*ft_lstnew(char *value)
+{
+	t_token	*new_elem;
+
+	new_elem = (t_token *)malloc(sizeof(t_token));
 	if (!new_elem)
-		return (0);
-	new_elem->content = content;
-	new_elem->next = 0;
+		return (NULL);
+	new_elem->value = value;
+	new_elem->next = NULL;
 	return (new_elem);
 }
 
-int	ft_lstsize(t_list *lst)
+void free_list(t_token *list)
 {
-	int		count;
+    t_token *current;
+    t_token *next;
 
-	count = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		count++;
-	}
-	return (count);
+    current = list;
+    while (current)
+    {
+        next = current->next;
+        free(current->value);
+        free(current);
+        current = next;
+    }
 }
 
-t_list	*ft_lstlast(t_list *lst)
+// int	ft_lstsize(t_token *lst)
+// {
+// 	int		count;
+
+// 	count = 0;
+// 	while (lst)
+// 	{
+// 		lst = lst->next;
+// 		count++;
+// 	}
+// 	return (count);
+// }
+
+// t_token	*ft_lstlast(t_token *lst)
+// {
+// 	if (lst)
+// 	{
+// 		while (lst->next)
+// 			lst = lst->next;
+// 		return (lst);
+// 	}
+// 	return (0);
+// }
+
+void	del_list(t_token *head)
 {
-	if (lst)
+	t_token	*current;
+	t_token	*next;
+
+	current = head;
+	while (current != NULL)
 	{
-		while (lst->next)
-			lst = lst->next;
-		return (lst);
+		next = current->next;
+		free(current);
+		current = next;
 	}
-	return (0);
+	head = NULL;
 }
-
-void	ft_lstclear(t_list **lst, void (*del)(void *))
-{
-	t_list	*temp;
-
-	if (!del)
-		return ;
-	while (*lst)
-	{
-		temp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = temp;
-	}
-}
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*tmp;
-
-	if (lst)
-	{
-		if (*lst == 0)
-			*lst = new;
-		else
-		{
-			tmp = ft_lstlast(*(lst));
-			tmp->next = new;
-		}
-	}
-}
-
