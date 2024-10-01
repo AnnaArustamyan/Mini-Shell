@@ -1,67 +1,63 @@
 #include "../includes/minishell.h"
 
-t_token	*ft_lstnew(char *value)
+t_lexer	*new_element(char *str, t_token token)
 {
-	t_token	*new_elem;
+	t_lexer	*new;
+	static int	index = 0;
 
-	new_elem = (t_token *)malloc(sizeof(t_token));
-	if (!new_elem)
+	new = (t_lexer *)malloc(sizeof(t_lexer));
+	if (!new)
 		return (NULL);
-	new_elem->value = value;
-	new_elem->next = NULL;
-	return (new_elem);
+	new->str = str;
+	new->token = token;
+	new->index = index++;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }
 
-void free_list(t_token *list)
-{
-    t_token *current;
-    t_token *next;
 
-    current = list;
-    while (current)
-    {
-        next = current->next;
-        free(current->value);
-        free(current);
-        current = next;
-    }
+void el_add_back(t_lexer **head, t_lexer *new)
+{
+	t_lexer	*last;
+
+	if (!new)
+		return ;
+	if (!*head)
+	{
+		*head = new;
+		return ;
+	}
+	last = *head;
+	while (last->next)
+		last = last->next;
+	last->next = new;
+	new->prev = last;
 }
 
-// int	ft_lstsize(t_token *lst)
-// {
-// 	int		count;
-
-// 	count = 0;
-// 	while (lst)
-// 	{
-// 		lst = lst->next;
-// 		count++;
-// 	}
-// 	return (count);
-// }
-
-// t_token	*ft_lstlast(t_token *lst)
-// {
-// 	if (lst)
-// 	{
-// 		while (lst->next)
-// 			lst = lst->next;
-// 		return (lst);
-// 	}
-// 	return (0);
-// }
-
-void	del_list(t_token *head)
+void create_and_add_to_list(char *str, t_token token, t_lexer **list)
 {
-	t_token	*current;
-	t_token	*next;
+	t_lexer	*new;
 
-	current = head;
+	new = new_element(str, token);
+	if(!new)
+		return ;
+	el_add_back(list, new);
+}
+
+void clear_lexer(t_lexer **head)
+{
+	t_lexer	*current;
+	t_lexer	*next;
+
+	current = *head;
 	while (current != NULL)
 	{
 		next = current->next;
+		free(current->str);
 		free(current);
 		current = next;
 	}
-	head = NULL;
+	*head = NULL;
 }
+
