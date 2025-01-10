@@ -1,4 +1,3 @@
-// Code by: gurkenglas	
 #include "../includes/minishell.h"
 
 int	is_whitespace(char c)
