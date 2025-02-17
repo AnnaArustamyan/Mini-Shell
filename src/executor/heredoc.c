@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/executor.h"
+#include "minishell.h"
 
 int	create_heredoc(t_lexer *heredoc, bool quotes,
 	t_tools *tools, char *file_name)
@@ -80,7 +80,7 @@ int	send_heredoc(t_tools *tools, t_simple_cmds *cmd)
 	start = cmd->redirections;
 	sl = EXIT_SUCCESS;
 	while (cmd->redirections)
-	{	
+	{
 		if (cmd->redirections->token == LESS_LESS)
 		{
 			if (cmd->hd_file_name)

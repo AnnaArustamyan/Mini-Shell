@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include "builtins.h"
 
 size_t	dollar_sign(char *str)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "executor.h"
+#include "minishell.h"
 
 t_simple_cmds	*call_expander(t_tools *tools, t_simple_cmds *cmd)
 {

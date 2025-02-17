@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-#include "lexer.h"
+#include "minishell.h"
 
 t_tokens	check_token(int c)
 {
@@ -54,6 +53,6 @@ int	handle_token(char *str, int i, t_lexer **lexer_list)
 		if (!add_node(NULL, token, lexer_list))
 			return (-1);
 		return (1);
-	}	
+	}
 	return (0);
 }

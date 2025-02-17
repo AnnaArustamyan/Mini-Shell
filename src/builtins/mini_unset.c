@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "minishell.h"
 
 char	**whileloop_del_var(char **arr, char **rtn, char *str)
 {
@@ -32,7 +32,7 @@ char	**whileloop_del_var(char **arr, char **rtn, char *str)
 				return (rtn);
 			}
 			j++;
-		}	
+		}
 		i++;
 	}
 	return (rtn);

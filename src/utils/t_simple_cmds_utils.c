@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "minishell.h"
 
 t_simple_cmds	*ft_simple_cmdsnew(char **str,
 	int num_redirections, t_lexer *redirections)

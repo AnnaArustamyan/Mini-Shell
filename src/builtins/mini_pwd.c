@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "minishell.h"
 
 int	mini_pwd(t_tools *tools, t_simple_cmds *simple_cmd)
 {

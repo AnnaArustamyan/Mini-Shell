@@ -54,24 +54,17 @@ src	=	src/main.c \
 
 OBJS	=	$(addprefix $(PATHO), $(notdir $(patsubst %.c, %.o, $(src))))
 
-FLAGS	=	-Wall -Werror -Wextra -g 
+FLAGS	=	-Wall -Werror -Wextra -g  -fsanitize=address -g
 
 LIBFT	=	./libraries/libft/libft.a
 
-HEADER	=	.includes/builtins.h \
-			.includes/color.h \
-			.includes/error.h \
-			.includes/executor.h \
-			.includes/lexer.h \
-			.includes/minishell.h \
-			.includes/parser.h \
-			.includes/utils.h 
+HEADER	=	.includes/minishell.h 
 
-READLINE_DIR = ./libraries/readline
+READLINE_DIR = ./libraries/readline-8.2
 
 READLINE_LIB = -L./libraries/lib -lreadline -lhistory 
 	
-INCLUDES =-Iincludes -I$(LIBFTP) -Ilibraries/include 
+INCLUDES = -Iincludes -I$(LIBFTP) -I$(READLINE_DIR)/include -I./libraries/include
 
 all: $(BUILD_PATHS) $(NAME)
 
@@ -109,7 +102,6 @@ $(PATHO)%.o:: $(PATHEX)%.c $(HEADERS)
 
 $(NAME): $(LIBFT) $(OBJS) $(HEADERS)
 	@$(CC) $(FLAGS) $(LIBFT) $(OBJS) $(READLINE_LIB) -o $(NAME)
-
 	@echo "Success"
 
 $(LIBFT):
@@ -135,3 +127,4 @@ fclean: clean
 re: fclean all
 
 .PRECIOUS: $(PATHO)%.o
+

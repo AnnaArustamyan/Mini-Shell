@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include "builtins.h"
+#include "minishell.h"
 
 int	loop_if_dollar_sign(t_tools *tools, char *str, char **tmp, int j)
 {

@@ -23,7 +23,7 @@ int	main(int argc, char **argv, char **envp)
 	}
 	tools.envp = ft_arrdup(envp);
 	find_pwd(&tools);
-	implement_tools(&tools);	
+	implement_tools(&tools);
 	minishell_loop(&tools);
 	return (0);
 }

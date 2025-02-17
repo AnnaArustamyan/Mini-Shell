@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "error.h"
+#include "minishell.h"
 
 void	parser_error(int error, t_tools *tools, t_lexer *lexer_list)
 {
