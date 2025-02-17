@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_lstnew.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:22:38 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:22:40 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam < aarustam@student.42yerevan.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 13:16:29 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/16 22:08:10 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 t_list	*ft_lstnew(void *content)
 {
-	struct s_list	*new_element;
+	t_list	*current;
 
-	new_element = (struct s_list *)malloc(sizeof(struct s_list));
-	if (!new_element)
+	current = (t_list *)malloc(sizeof(t_list));
+	if (!current)
 		return (0);
-	new_element->content = content;
-	new_element->next = NULL;
-	return (new_element);
+	current->content = content;
+	current->next = NULL;
+	return (current);
 }
+/*
+int main() {
+    t_list *p;
+    int a = 9;
+    p = ft_lstnew(&a);
+    printf("%d\n", *(int *)(p->content));
+	return 0;
+}*/

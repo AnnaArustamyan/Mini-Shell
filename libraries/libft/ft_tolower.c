@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_tolower.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:25:21 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:25:22 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 13:34:19 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/16 13:34:21 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_tolower(int c)
 {
-	if (c > 64 && c < 91)
-		return (c + 32);
+	if (c >= 'A' && c <= 'Z')
+		c = c + 32;
 	return (c);
 }
+/*
+#include <stdio.h>
+int	main()
+{
+	char a[] = "ASDFGH";
+	printf("%s",a);
+}*/

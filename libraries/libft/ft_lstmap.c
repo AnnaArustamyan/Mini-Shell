@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_lstmap.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:22:33 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:22:35 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam < aarustam@student.42yerevan.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/17 22:45:22 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/18 10:41:10 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,21 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_list;
-	t_list	*head;
+	t_list	*new_head;
+	t_list	*new;
+	t_list	*original_head;
 
-	head = NULL;
-	if (!lst || !f)
-		return (head);
+	if (!lst || !del || !f)
+		return (NULL);
+	original_head = lst;
+	new_head = NULL;
 	while (lst)
 	{
-		new_list = ft_lstnew(f(lst->content));
-		if (new_list)
-			ft_lstadd_back(&head, new_list);
-		else
-		{
-			ft_lstclear(&head, del);
-			return (NULL);
-		}
+		new = ft_lstnew(f(lst->content));
+		if (!new)
+			ft_lstclear(&original_head, (*del));
+		ft_lstadd_back(&new_head, new);
 		lst = lst->next;
 	}
-	return (head);
+	return (new_head);
 }

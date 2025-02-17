@@ -1,27 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   print_unsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 22:32:19 by aarustam          #+#    #+#             */
-/*   Updated: 2025/02/17 22:32:27 by aarustam         ###   ########.fr       */
+/*   Created: 2024/04/05 21:20:15 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 22:11:43 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putunbr(unsigned int n)
 {
-	const unsigned char	*p;
+	char	c;
 
-	p = (const unsigned char *)s;
-	while (n--)
+	if (n >= 10)
 	{
-		if (*p == (unsigned char)c)
-			return ((void *) p);
-		++p;
+		ft_putunbr(n / 10);
+		c = n % 10 + '0';
+		write(1, &c, 1);
 	}
-	return (NULL);
+	else
+	{
+		c = n + '0';
+		write(1, &c, 1);
+	}
+}
+
+int	print_unsigned(unsigned int n)
+{
+	int	len;
+
+	ft_putunbr(n);
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n)
+	{
+		len++;
+		n /= 10;
+	}
+	return (len);
 }

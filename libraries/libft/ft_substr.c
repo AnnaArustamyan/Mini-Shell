@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_substr.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:25:16 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:25:18 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 13:34:02 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/16 13:34:04 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,33 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
-	char			*substr;
-	size_t			strln;
+	size_t	i;
+	size_t	j;
+	char	*p;
 
-	strln = ft_strlen(s);
 	if (!s)
-		return (0);
-	if (start > strln)
+		return (NULL);
+	if (len == 0 || start > ft_strlen(s))
 		return (ft_strdup(""));
-	if (len > strln - start)
-		return (ft_strdup(s + start));
-	i = 0;
-	substr = (char *)malloc((len * sizeof(char)) + 1);
-	if (!substr)
-		return (0);
-	while (i < len)
+	if (start + len > ft_strlen(s))
+		p = (char *)malloc(ft_strlen(s) - start + 1);
+	else
+		p = (char *)malloc(len + 1);
+	if (!p)
+		return (NULL);
+	i = start;
+	j = 0;
+	while (j < len && s[i])
 	{
-		substr[i] = s[start + i];
+		p[j] = s[i];
 		i++;
+		j++;
 	}
-	substr[i] = '\0';
-	return (substr);
+	p[j] = '\0';
+	return (p);
 }
+
+// int main(void)
+// {
+// 	return (0);
+// }

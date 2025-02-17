@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_memset.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:23:22 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:23:23 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/26 23:39:10 by aarustam          #+#    #+#             */
+/*   Updated: 2024/01/28 17:22:51 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t	i;
+	unsigned char	*p;
 
-	i = 0;
-	while (i < n)
+	p = (unsigned char *)b;
+	while (len--)
 	{
-		((char *)str)[i] = c;
-		i++;
+		*p++ = (unsigned char)c;
 	}
-	return ((void *)str);
+	return (b);
 }
+/*
+#include <stdio.h>
+int main()
+{
+	void * b;
+	const unsigned int n = 10;
+	char a[n];
+	b = (void *)a;
+	ft_memset(b, 'c', n);
+    printf("%s", b);	
+}*/

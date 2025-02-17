@@ -54,6 +54,7 @@ src	=	src/main.c \
 
 OBJS	=	$(addprefix $(PATHO), $(notdir $(patsubst %.c, %.o, $(src))))
 
+FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 
 LIBFT	=	./libraries/libft/libft.a
 

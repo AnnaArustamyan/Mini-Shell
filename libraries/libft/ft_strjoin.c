@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strjoin.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:24:11 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:24:13 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 13:29:27 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/16 13:29:28 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,34 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		len;
-	char	*s1_2;
+	char	*p;
 	int		i;
+	int		j;
 
-	if ((!s1 || !s2) || (!s1 && !s2))
-		return (0);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	s1_2 = (char *)malloc(len * sizeof(char) + 1);
+	if (!s1 || !s2)
+		return (NULL);
 	i = 0;
-	if (!s1_2)
-		return (0);
-	while (*s1)
+	j = 0;
+	p = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!p)
+		return (NULL);
+	while (s1[i])
 	{
-		s1_2[i] = *s1;
-		s1++;
+		p[i] = s1[i];
 		i++;
 	}
-	while (*s2)
+	while (s2[j])
 	{
-		s1_2[i] = *s2;
-		s2++;
+		p[i] = s2[j];
 		i++;
+		j++;
 	}
-	s1_2[i] = '\0';
-	return (s1_2);
+	p[i] = '\0';
+	return (p);
 }
+// #include <stdio.h>
+// int	main()
+// {
+// 	char *str = ft_strjoin("3123", "asbd");
+// 	printf("%s\n", str);
+// }

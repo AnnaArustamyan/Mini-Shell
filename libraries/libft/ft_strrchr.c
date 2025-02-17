@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strrchr.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:24:59 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:25:00 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 13:33:02 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/16 13:33:06 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,31 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
+	int	i;
 
-	i = ft_strlen(s) - 1;
+	i = 0;
+	while (s[i])
+		i++;
 	while (i >= 0)
 	{
-		if (s[i] == (unsigned char)c)
-		{
-			while (i > 0)
-			{
-				s++;
-				i--;
-			}
-			return ((char *)s);
-		}
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
 		i--;
 	}
-	while (*s)
-		s++;
-	if (*s == (unsigned char)c)
-		return ((char *)s);
-	return (0);
+	return (NULL);
 }
+/*
+#include <stdio.h>
+int main() {
+    const char *str = "hello world";
+    int ch = 'w';
+
+    char *result = ft_strrchr(str, ch);
+
+    if (result != NULL) {
+    } else {
+        printf("Character '%c' not found in the string.\n", ch);
+    }
+
+    return 0;
+}*/

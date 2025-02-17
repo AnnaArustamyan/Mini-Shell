@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:18:49 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:18:51 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/28 17:36:01 by aarustam          #+#    #+#             */
+/*   Updated: 2024/01/28 18:06:29 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *str, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
+	unsigned char	*p;
 
-	i = 0;
-	while (i < n)
-	{
-		((char *)str)[i] = '\0';
-		i++;
-	}
-	return (str);
+	p = (unsigned char *)s;
+	while (n-- > 0)
+		*p++ = 0;
 }
+/*
+#include <stdio.h>
+int main()
+{
+	char a[10] = {'1','2','3','4','5','6','7','8','9','p'};
+    int value = 42;
+    ft_bzero(&value, sizeof(int));
+	ft_bzero(a, sizeof(a));
+
+    printf(" %d\n", value);
+	for (int i = 0; i < sizeof(a); ++i)
+        printf(" %d ", a[i]);
+
+    return 0;
+}*/

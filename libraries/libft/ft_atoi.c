@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_atoi.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:18:44 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:18:46 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 13:09:00 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/16 13:09:11 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,24 @@
 
 int	ft_atoi(const char *str)
 {
-	int	ret;
-	int	p_n;
-	int	i;
+	int	sign;
+	int	result;
 
-	i = 0;
-	ret = 0;
-	p_n = 1;
-	while (*str == ' ' || (*str > 8 && *str < 14))
+	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
 		str++;
-	if (*str == '-' || *str == '+')
+	sign = 1;
+	if (*str == '-')
 	{
-		if (*str == '-')
-			p_n *= -1;
+		str++;
+		sign = -1;
+	}
+	else if (*str == '+')
+		str++;
+	result = 0;
+	while ('0' <= *str && *str <= '9')
+	{
+		result = result * 10 + (*str - 48);
 		str++;
 	}
-	while (ft_isdigit(str[i]) == 1)
-	{
-		ret = (ret * 10) + (str[i] - '0');
-		i++;
-		if (i == 10 && str[i] && p_n == -1)
-			return (0);
-		else if (i == 10 && str[i])
-			return (-1);
-	}
-	return (ret * p_n);
+	return (result * sign);
 }

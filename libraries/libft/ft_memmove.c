@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_memmove.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:23:07 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:23:08 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 13:20:41 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/16 13:20:45 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
+	unsigned const char	*s;
+	unsigned char		*d;
 
-	i = 0;
-	if (src == 0 && dst == 0)
-		return (0);
-	if (dst < src)
+	s = (unsigned const char *)src;
+	d = (unsigned char *)dst;
+	if ((!dst && !src) || len <= 0)
+		return (dst);
+	if (d < s || d > s + len)
 	{
-		while (n)
-		{
-			((char *)dst)[i] = ((char *)src)[i];
-			i++;
-			n--;
-		}
+		while (len--)
+			*d++ = *s++;
 	}
 	else
 	{
-		while (n)
-		{
-			((char *)dst)[n - 1] = ((char *)src)[n - 1];
-			n--;
-		}
+		while (len--)
+			d[len] = s[len];
 	}
 	return (dst);
 }

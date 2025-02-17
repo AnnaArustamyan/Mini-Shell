@@ -1,76 +1,79 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_itoa.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:21:55 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:21:59 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 22:32:47 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 22:32:50 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	determine_length(long long n, int neg_or_pos)
+size_t	ft_digcount(int n)
 {
-	int	i;
+	size_t	count;
 
-	i = 0;
+	count = 0;
 	if (n == 0)
-		i++;
-	while (n > 0)
+		return (1);
+	if (n < 0)
+		count++;
+	while (n)
 	{
-		n = n / 10;
-		i++;
+		n /= 10;
+		count++;
 	}
-	if (neg_or_pos)
-		i++;
-	return (i);
+	return (count);
 }
 
-char	*fill_arr(long long n, char *arr, int i, int neg_or_pos)
+void	ft_assign_char(int dig, char *p, char *str, int i)
 {
-	arr[i] = '\0';
-	i--;
-	if (n == 0)
-	{
-		arr[i] = '0';
-		i--;
-	}
-	while (n > 0)
-	{
-		arr[i] = (n % 10) + '0';
-		i--;
-		n = n / 10;
-	}
-	if (neg_or_pos)
-	{
-		arr[i] = '-';
-		i++;
-	}
-	return (arr);
+	p[i - 1] = str[dig];
 }
 
-char	*ft_itoa(int n)
+char	*checkzero(char *p, size_t dc)
 {
-	int			i;
-	int			neg_or_pos;
-	char		*arr;
-	long long	j;
+	if (!p)
+		return (NULL);
+	p[0] = '0';
+	p[dc] = '\0';
+	return (p);
+}
 
-	neg_or_pos = 0;
+char	*ft_itoa(int num)
+{
+	char		*p;
+	size_t		dc;
+	size_t		dig;
+	long long	n;
+
+	n = num;
+	dc = ft_digcount(n);
+	p = (char *)malloc(dc + 1);
+	if (num == 0 || !p)
+		return (checkzero(p, dc));
+	p[dc] = '\0';
 	if (n < 0)
 	{
-		neg_or_pos = 1;
-		j = (long long)n * -1;
+		p[0] = '-';
+		n = n * (-1);
 	}
-	else
-		j = (long long)n;
-	i = determine_length(j, neg_or_pos);
-	arr = malloc(i * sizeof(char) + 1);
-	if (!arr)
-		return (0);
-	arr = fill_arr(j, arr, i, neg_or_pos);
-	return (arr);
+	while (n && dc > 0)
+	{
+		dig = n % 10;
+		ft_assign_char(dig, p, "0123456789", dc);
+		n /= 10;
+		dc--;
+	}
+	return (p);
 }
+
+// #include <stdio.h>
+// int	main()
+// {
+// 	printf("%s\n", ft_itoa(-0));
+// 	//printf("%lu\n", ft_digcount(789));
+// }

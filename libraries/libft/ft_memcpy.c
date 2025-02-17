@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_memcpy.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:22:59 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:23:03 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 13:19:54 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/16 13:19:58 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,29 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
+	unsigned char		*d;
+	unsigned const char	*s;
 
-	i = 0;
-	while (i < n && (((char *)src) || ((char *)dst)))
+	d = (unsigned char *)dst;
+	s = (unsigned const char *)src;
+	if (!dst && !src)
+		return (NULL);
+	while (n-- > 0)
 	{
-		((char *)dst)[i] = ((char *)src)[i];
-		i++;
+		*d++ = *s++;
 	}
-	return ((void *)dst);
+	return (dst);
 }
+/*
+#include <stdio.h>
+int main() {
+    char source[13];
+    char destination[20];
+
+    ft_memcpy(destination, source, sizeof(source) + 1);
+    
+	printf("Source: %s\n", source);
+    printf("Destination: %s", destination);
+
+    return 0;
+}*/

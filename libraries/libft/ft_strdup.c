@@ -1,33 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strdup.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:24:00 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:24:02 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 13:28:51 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/16 13:28:52 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *str)
 {
-	char	*s2;
-	size_t	size;
-	size_t	i;
+	char	*cpy;
+	int		i;
 
-	i = 0;
-	size = ft_strlen(s1);
-	s2 = (char *)malloc((size * sizeof(char)) + 1);
-	if (!s2)
-		return (0);
-	while (i < size)
+	cpy = (char *)malloc(ft_strlen(str) * sizeof(char) + 1);
+	if (!cpy)
 	{
-		s2[i] = s1[i];
+		return (0);
+	}
+	i = 0;
+	while (str[i])
+	{
+		cpy[i] = str[i];
 		i++;
 	}
-	s2[i] = '\0';
-	return (s2);
+	cpy[i] = '\0';
+	return (cpy);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+int main() {
+    const char *original = NULL;
+    char *duplicate = strdup(original);
+
+	if (duplicate == NULL)
+		printf("Memory allocation failed.\n");
+	else{
+		printf("Original: %s\n", original);
+		printf("Duplicate: %s\n", duplicate);
+		free(duplicate);
+	}
+    return 0;
+}*/

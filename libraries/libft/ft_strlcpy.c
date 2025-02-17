@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strlcpy.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:24:21 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:24:23 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 13:30:39 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/16 13:30:41 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 
+	if (!size)
+		return (ft_strlen(src));
 	i = 0;
-	while ((i < (dstsize - 1)) && src[i] && dstsize > 0)
+	while (src[i] && i < size - 1)
 	{
-		dst[i] = src[i];
+		dest[i] = src[i];
 		i++;
 	}
-	if (dstsize != 0)
-		dst[i] = '\0';
+	dest[i] = '\0';
 	return (ft_strlen(src));
 }
+/*
+#include <stdio.h>
+int main() {
+    char destination[0];
+    const char *source = "Hello, World!";
+
+    size_t copied_len = ft_strlcpy(destination, source, 10);
+
+    printf("Copied string: %s\n", destination);
+
+    return 0;
+}*/

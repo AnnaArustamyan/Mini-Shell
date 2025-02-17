@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_lstiter.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/16 14:22:22 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/16 14:22:24 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam < aarustam@student.42yerevan.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/17 22:38:37 by aarustam          #+#    #+#             */
+/*   Updated: 2024/02/17 22:43:58 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst)
+	t_list	*head;
+
+	if (!lst || !f)
 		return ;
-	while (lst)
+	head = lst;
+	while (head != NULL)
 	{
-		f(lst->content);
-		lst = lst->next;
+		f(head->content);
+		head = head->next;
 	}
 }

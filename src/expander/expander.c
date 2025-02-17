@@ -6,7 +6,7 @@
 /*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 21:07:08 by aarustam          #+#    #+#             */
-/*   Updated: 2025/02/17 21:07:11 by aarustam         ###   ########.fr       */
+/*   Updated: 2025/02/17 22:30:49 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,15 @@ char	**expander(t_tools *tools, char **str)
 	tmp = NULL;
 	while (str[i] != NULL)
 	{
-		if (str[i][dollar_sign(str[i]) - 2] != '\'' && dollar_sign(str[i]) != 0
-			&& str[i][dollar_sign(str[i])] != '\0')
+		if (dollar_sign(str[i]) > 1 && str[i][dollar_sign(str[i]) - 2] != '\''
+		&& dollar_sign(str[i]) != 0 && str[i][dollar_sign(str[i])] != '\0')
 		{
 			tmp = detect_dollar_sign(tools, str[i]);
-			free(str[i]);
-			str[i] = tmp;
+			if (tmp)
+			{
+				free(str[i]);
+				str[i] = tmp;
+			}
 		}
 		if (ft_strncmp(str[0], "export", ft_strlen(str[0]) - 1) != 0)
 		{
