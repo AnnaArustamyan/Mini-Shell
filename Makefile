@@ -71,7 +71,7 @@ READLINE_DIR = ./libraries/readline
 
 READLINE_LIB = -L./libraries/lib -lreadline -lhistory 
 	
-INCLUDES =-Iincludes -I$(LIBFTP) -I$(READLINE_DIR)/include 
+INCLUDES =-Iincludes -I$(LIBFTP) -Ilibraries/include 
 
 all: $(BUILD_PATHS) $(NAME)
 
