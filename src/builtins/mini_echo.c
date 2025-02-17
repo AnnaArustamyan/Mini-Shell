@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   mini_echo.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: maiadegraaf <maiadegraaf@student.codam.      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/02/16 10:47:40 by maiadegraaf   #+#    #+#                 */
-/*   Updated: 2022/04/19 15:10:51 by maiadegraaf   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   mini_echo.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 20:55:11 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 20:55:14 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "minishell.h"
 
 void	print_lines(int i, char **str, int out)
 {

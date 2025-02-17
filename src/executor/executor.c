@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   executor.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/02/24 15:09:50 by mgraaf        #+#    #+#                 */
-/*   Updated: 2022/10/03 17:56:15 by maiadegraaf   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   executor.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 21:05:17 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 21:05:19 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "executor.h"
+#include "minishell.h"
 
 t_simple_cmds	*call_expander(t_tools *tools, t_simple_cmds *cmd)
 {

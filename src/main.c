@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarustam < aarustam@student.42yerevan.a    +#+  +:+       +#+        */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 12:04:02 by mgraaf            #+#    #+#             */
-/*   Updated: 2025/02/16 22:35:26 by aarustam         ###   ########.fr       */
+/*   Created: 2025/02/17 21:09:36 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 21:09:38 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv, char **envp)
 	}
 	tools.envp = ft_arrdup(envp);
 	find_pwd(&tools);
-	implement_tools(&tools);	
+	implement_tools(&tools);
 	minishell_loop(&tools);
 	return (0);
 }

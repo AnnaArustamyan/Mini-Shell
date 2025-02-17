@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell_loop.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarustam < aarustam@student.42yerevan.a    +#+  +:+       +#+        */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 16:06:58 by fpolycar          #+#    #+#             */
-/*   Updated: 2025/02/16 22:46:49 by aarustam         ###   ########.fr       */
+/*   Created: 2025/02/17 21:10:44 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 21:10:47 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

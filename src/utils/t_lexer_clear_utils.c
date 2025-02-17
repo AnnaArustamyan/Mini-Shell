@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   t_lexor_clear_utils.c                              :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: maiadegraaf <maiadegraaf@student.codam.      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/04/13 11:11:43 by maiadegraaf   #+#    #+#                 */
-/*   Updated: 2022/10/03 17:56:15 by maiadegraaf   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   t_lexer_clear_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 21:11:27 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 21:11:29 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "minishell.h"
 
 t_lexer	*ft_lexerclear_one(t_lexer **lst)
 {

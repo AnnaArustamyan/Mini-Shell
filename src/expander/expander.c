@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   expander.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: fpolycar <fpolycar@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/03/15 13:35:26 by fpolycar      #+#    #+#                 */
-/*   Updated: 2022/04/20 10:13:37 by fpolycar      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   expander.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 21:07:08 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 21:07:11 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include "builtins.h"
 
 int	loop_if_dollar_sign(t_tools *tools, char *str, char **tmp, int j)
 {

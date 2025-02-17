@@ -54,24 +54,16 @@ src	=	src/main.c \
 
 OBJS	=	$(addprefix $(PATHO), $(notdir $(patsubst %.c, %.o, $(src))))
 
-FLAGS	=	-Wall -Werror -Wextra -g 
 
 LIBFT	=	./libraries/libft/libft.a
 
-HEADER	=	.includes/builtins.h \
-			.includes/color.h \
-			.includes/error.h \
-			.includes/executor.h \
-			.includes/lexer.h \
-			.includes/minishell.h \
-			.includes/parser.h \
-			.includes/utils.h 
+HEADER = .includes/minishell.h
 
 READLINE_DIR = ./libraries/readline
 
 READLINE_LIB = -L./libraries/lib -lreadline -lhistory 
 	
-INCLUDES =-Iincludes -I$(LIBFTP) -I$(READLINE_DIR)/include 
+INCLUDES =-Iincludes -I$(LIBFTP) -Ilibraries/include 
 
 all: $(BUILD_PATHS) $(NAME)
 

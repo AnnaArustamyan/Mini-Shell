@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   mini_exit.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: maiadegraaf <maiadegraaf@student.codam.      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/02/17 10:10:47 by maiadegraaf   #+#    #+#                 */
-/*   Updated: 2022/04/19 15:27:25 by maiadegraaf   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   mini_exit.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 20:59:08 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 20:59:10 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
-#include <signal.h>
+#include "minishell.h"
 
 void	free_tools(t_tools *tools)
 {

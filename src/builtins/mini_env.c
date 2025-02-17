@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   mini_env.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: maiadegraaf <maiadegraaf@student.codam.      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/02/16 12:09:05 by maiadegraaf   #+#    #+#                 */
-/*   Updated: 2022/04/18 14:02:43 by fpolycar      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   mini_env.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 20:56:29 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 20:56:33 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "minishell.h"
 
 int	mini_env(t_tools *tools, t_simple_cmds *simple_cmd)
 {

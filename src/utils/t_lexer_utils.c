@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   t_lexer_utils.c                              :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/02/17 15:31:53 by mgraaf        #+#    #+#                 */
-/*   Updated: 2022/02/17 15:36:36 by mgraaf        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   t_lexer_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 21:11:38 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 21:11:40 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "minishell.h"
 
 t_lexer	*ft_lexernew(char *str, int token)
 {

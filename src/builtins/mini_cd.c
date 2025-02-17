@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   mini_cd.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/02/15 15:17:04 by mgraaf        #+#    #+#                 */
-/*   Updated: 2022/04/19 15:10:44 by maiadegraaf   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   mini_cd.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 20:54:11 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 20:54:40 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "minishell.h"
-#include "builtins.h"
+#include "minishell.h"
 
 char	*find_path_ret(char *str, t_tools *tools)
 {
