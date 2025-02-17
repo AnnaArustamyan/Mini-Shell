@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   heredoc.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: maiadegraaf <maiadegraaf@student.codam.      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/04/11 17:42:39 by maiadegraaf   #+#    #+#                 */
-/*   Updated: 2022/10/03 17:56:15 by maiadegraaf   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   heredoc.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 21:05:45 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 21:06:15 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/executor.h"
+#include "minishell.h"
 
 int	create_heredoc(t_lexer *heredoc, bool quotes,
 	t_tools *tools, char *file_name)
@@ -80,7 +80,7 @@ int	send_heredoc(t_tools *tools, t_simple_cmds *cmd)
 	start = cmd->redirections;
 	sl = EXIT_SUCCESS;
 	while (cmd->redirections)
-	{	
+	{
 		if (cmd->redirections->token == LESS_LESS)
 		{
 			if (cmd->hd_file_name)

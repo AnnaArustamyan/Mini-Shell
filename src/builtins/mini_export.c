@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   mini_export.c                                      :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: fpolycar <fpolycar@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/03/24 16:07:21 by fpolycar      #+#    #+#                 */
-/*   Updated: 2022/04/19 15:11:16 by maiadegraaf   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   mini_export.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 20:59:44 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 20:59:46 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "minishell.h"
 
 int	variable_exist(t_tools *tools, char *str)
 {

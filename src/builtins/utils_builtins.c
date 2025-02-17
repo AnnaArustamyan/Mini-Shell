@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils_builtins.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarustam < aarustam@student.42yerevan.a    +#+  +:+       +#+        */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 16:04:47 by fpolycar          #+#    #+#             */
-/*   Updated: 2025/02/16 22:27:45 by aarustam         ###   ########.fr       */
+/*   Created: 2025/02/17 21:01:21 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 21:01:23 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "minishell.h"
 
 void	change_path(t_tools *tools)
 {

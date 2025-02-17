@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   expanders_utils2.c                                 :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: fpolycar <fpolycar@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/04/18 16:20:01 by fpolycar      #+#    #+#                 */
-/*   Updated: 2022/04/18 16:32:01 by fpolycar      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   expanders_utils2.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 21:07:28 by aarustam          #+#    #+#             */
+/*   Updated: 2025/02/17 21:07:30 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include "builtins.h"
 
 int	question_mark(char **tmp)
 {

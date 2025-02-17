@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   mini_unset.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: maiadegraaf <maiadegraaf@student.codam.      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/02/17 10:13:32 by maiadegraaf   #+#    #+#                 */
-/*   Updated: 2022/10/03 16:39:00 by maiadegraaf   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   mini_unset.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/17 10:13:32 by maiadegraaf       #+#    #+#             */
+/*   Updated: 2025/02/17 21:01:05 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "minishell.h"
 
 char	**whileloop_del_var(char **arr, char **rtn, char *str)
 {
@@ -32,7 +32,7 @@ char	**whileloop_del_var(char **arr, char **rtn, char *str)
 				return (rtn);
 			}
 			j++;
-		}	
+		}
 		i++;
 	}
 	return (rtn);
