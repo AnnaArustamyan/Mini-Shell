@@ -6,7 +6,7 @@
 /*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 21:11:55 by aarustam          #+#    #+#             */
-/*   Updated: 2025/02/17 21:11:57 by aarustam         ###   ########.fr       */
+/*   Updated: 2025/02/18 23:55:11 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,52 @@ int	find_matching_quote(char *line, int i, int *num_del, int del)
 	return (j - i);
 }
 
+int first_occurance_matches_last_occurance(char *line)
+{
+	int i;
+	int first;
+	int last;
+
+	i = 0;
+	first = 0;
+	last = 0;
+	while(line[i])
+	{
+		if (line[i] == 34 || line[i] == 39)
+		{
+			first = line[i];
+			break;
+		}
+		i++;
+	}
+	while(line[i])
+	{
+		if (line[i] == 34 || line[i] == 39)
+			last = line[i];
+		i++;
+	}
+	if (first == last)
+		return (1);//true
+	return (0);//false
+}
+
 int	count_quotes(char *line)
 {
 	int	i;
 	int	s;
 	int	d;
+	int sona;
 
 	s = 0;
 	d = 0;
 	i = -1;
+	sona = 0;
+	
+	while(line[++i])
+	{
+		if (line[i] && (line[i] == 34 || line[i] == 39))
+			sona++;
+	}
 	while (line[++i])
 	{
 		if (line[i] == 34)
@@ -41,7 +78,8 @@ int	count_quotes(char *line)
 		if (line[i] == 39)
 			i += find_matching_quote(line, i, &s, 39);
 	}
-	if ((d > 0 && d % 2 != 0) || (s > 0 && s % 2 != 0))
+	if ((d > 0 && d % 2 != 0) || (s > 0 && s % 2 != 0)
+		|| (sona % 2 != 0 && sona != 0) || first_occurance_matches_last_occurance(line) == 0)
 		return (0);
 	return (1);
 }
