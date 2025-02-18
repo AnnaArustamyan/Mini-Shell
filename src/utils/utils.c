@@ -6,7 +6,7 @@
 /*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 21:11:55 by aarustam          #+#    #+#             */
-/*   Updated: 2025/02/19 00:44:42 by aarustam         ###   ########.fr       */
+/*   Updated: 2025/02/19 00:56:14 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	count_quotes(char *line)
 	int	i;
 	int	s;
 	int	d;
-	int	sona;
 
 	s = 0;
 	d = 0;
