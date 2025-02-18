@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: songevor <songevor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aarustam <aarustam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 21:11:55 by aarustam          #+#    #+#             */
-/*   Updated: 2025/02/19 00:31:34 by songevor         ###   ########.fr       */
+/*   Updated: 2025/02/19 00:44:42 by aarustam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,21 @@ int	first_occurance_matches_last_occurance(char *line)
 	return (0);
 }
 
+int check_even_or_odd(char *line)
+{
+	int i;
+	int sona;
+
+	i = -1;
+	sona = 0;
+	while (line[++i])
+	{
+		if (line[i] && (line[i] == 34 || line[i] == 39))
+			sona++;
+	}
+	return (sona % 2);// return 1 if odd, 0 if even
+}
+
 int	count_quotes(char *line)
 {
 	int	i;
@@ -64,13 +79,7 @@ int	count_quotes(char *line)
 	s = 0;
 	d = 0;
 	i = -1;
-	sona = 0;
 
-	while (line[++i])
-	{
-		if (line[i] && (line[i] == 34 || line[i] == 39))
-			sona++;
-	}
 	while (line[++i])
 	{
 		if (line[i] == 34)
@@ -79,7 +88,7 @@ int	count_quotes(char *line)
 			i += find_matching_quote(line, i, &s, 39);
 	}
 	if ((d > 0 && d % 2 != 0) || (s > 0 && s % 2 != 0)
-		|| (sona % 2 != 0 && sona != 0)
+		|| check_even_or_odd(line) == 1
 		|| first_occurance_matches_last_occurance(line) == 0)
 		return (0);
 	return (1);
@@ -108,13 +117,4 @@ char	**ft_arrdup(char **arr)
 		i++;
 	}
 	return (rtn);
-}
-
-int	check_even(char *line)
-{
-	while (line[++i])
-	{
-		if (line[i] && (line[i] == 34 || line[i] == 39))
-			sona++;
-	}
 }
