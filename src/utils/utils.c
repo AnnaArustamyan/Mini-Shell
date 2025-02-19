@@ -54,10 +54,10 @@ int	first_occurance_matches_last_occurance(char *line)
 	return (0);
 }
 
-int check_even_or_odd(char *line)
+int	check_even_or_odd(char *line)
 {
-	int i;
-	int sona;
+	int	i;
+	int	sona;
 
 	i = -1;
 	sona = 0;
@@ -66,7 +66,7 @@ int check_even_or_odd(char *line)
 		if (line[i] && (line[i] == 34 || line[i] == 39))
 			sona++;
 	}
-	return (sona % 2);// return 1 if odd, 0 if even
+	return (sona % 2);
 }
 
 int	count_quotes(char *line)
@@ -78,7 +78,6 @@ int	count_quotes(char *line)
 	s = 0;
 	d = 0;
 	i = -1;
-
 	while (line[++i])
 	{
 		if (line[i] == 34)
