@@ -1,0 +1,29 @@
+name: Check C Syntax
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up C environment
+        run: sudo apt-get install gcc
+
+      - name: Check C syntax
+        run: |
+          for file in $(find . -name '*.c'); do
+            gcc -fsyntax-only "$file"
+            if [ $? -ne 0 ]; then
+              echo "Syntax error found in $file"
+              exit 1
+            fi
+          done
